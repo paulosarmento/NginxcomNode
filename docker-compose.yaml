@@ -17,6 +17,8 @@ services:
     networks:
       - node-network
     # restart: always
+    volumes:
+      - ./node:/app
     tty: true
     ports:
       - "3000:3000"
