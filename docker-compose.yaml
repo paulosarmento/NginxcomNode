@@ -16,14 +16,13 @@ services:
     container_name: app
     networks:
       - node-network
-    restart: always
-    # volumes:
-    #   - ./node:/app
+    # restart: always
     tty: true
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: mysql:5.7
@@ -39,6 +38,11 @@ services:
       - node-network
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 networks:
   node-network:
     driver: bridge
