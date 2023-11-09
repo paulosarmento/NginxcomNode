@@ -10,7 +10,7 @@ services:
     depends_on:
       - app
   app:
-    image: paulosarmento/nodedb
+    # image: paulosarmento/nodedb
     build:
       context: node
     container_name: app
