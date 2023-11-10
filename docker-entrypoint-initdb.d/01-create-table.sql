@@ -8,3 +8,4 @@ CREATE TABLE IF NOT EXISTS people (
   PRIMARY KEY (id)
 );
 
+INSERT INTO people(name) VALUES ('Paulo'), ('Zezinho'), ('Xuxa da Silva');

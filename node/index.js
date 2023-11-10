@@ -9,8 +9,6 @@ const config = {
 };
 const mysql = require("mysql");
 const connection = mysql.createConnection(config);
-const sql = `INSERT INTO people(name) values('Paulo')`;
-connection.query(sql);
 
 app.get("/", (req, res) => {
   // Consulta o banco de dados para obter as pessoas cadastradas
